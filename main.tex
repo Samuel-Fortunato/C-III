@@ -11,34 +11,8 @@
 \author{Samuel Fortunato}
 
 \begin{document}
-\section{Produto interno de funcões - revisão}
-\Large{
-    \begin{gather*}
-        \left\langle f, g \right\rangle = \int_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \overline{g(x)}\,dt
-    \end{gather*}
-}
 
-\section{Séries de Fourier}
-\subsection{Forma exponencial complexa}
-\Large{
-    \begin{gather*}
-        f(t) = \sum_{n=-\infty}^{\infty} c_n e^{i n \omega t} \\
-        \\
-        c_n = \frac{1}{T}\left\langle f, e^{i n \omega t} \right\rangle = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) e^{-i n \omega t} dt
-    \end{gather*}
-}
-
-\subsection{Forma trignométrica}
-\Large{
-    \begin{gather*}
-        f(t) = \frac{a_0}{2} + \sum_{k=1}^{\infty} \left[ a_k \cos(k \omega t) + b_k \sin(k \omega t) \right] \\
-        \\
-        \frac{a_0}{2} = c_0 = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) dt \\
-        \\
-        a_k = c_k - c_{-k} = \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) \cos(k \omega t) dt \\
-        \\
-        b_n = i(c_k - c_{-k}) = \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} f(t) \sin(k \omega t) dt 
-    \end{gather*}
-}
+\include{fourier}
+\include{EDPs}
 
 \end{document}

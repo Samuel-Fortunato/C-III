@@ -1,0 +1,30 @@
+\section{Equações derivadas parciais}
+
+\subsection{Método de Características}
+
+\subsubsection{Forma da equação}
+Equações (quase) lineares de primeira ordem:
+\begin{equation*}
+    a u_x + b u_y = c
+\end{equation*}
+\begin{itemize}
+    \item \textbf{Função incógnita:} $u = u(x,y)$
+    \item \textbf{Funções conhecidas:} $a = a(x,y) $, $b = b(x,y)$ e $c = c(x,y,u)$
+\end{itemize}
+
+\subsubsection{Solução}
+A solução é dada pela solução do sistema de EDOs:
+\begin{align*}
+    x'(s) &= a(x,y) \\
+    y'(s) &= b(x,y) \\
+    u'(s) &= c(x,y,u(x,y))
+\end{align*}
+ou equivalentemente:
+\begin{equation*}
+    ds = \frac{dx}{a} = \frac{dy}{b} = \frac{du}{c}
+    \Leftrightarrow
+    \begin{cases}
+        \frac{dx}{a} = \frac{dy}{b} \\
+        \frac{dx}{a} = \frac{du}{c}
+    \end{cases}
+\end{equation*}
