@@ -39,3 +39,148 @@ Ao resolver o sistema, obtemos duas constantes de integração $C_1$ e $C_2$. Po
         C_2 = f(C_1)
     \end{equation*}
 }
+
+
+
+\newpage
+
+
+
+\subsection{Classificação de equações lineares de segunda ordem}
+Forma geral da EDP linear de segunda ordem em 2D:
+{\large
+    \begin{equation*}
+        A u_{xx} + B u_{xy} + C u_{yy} + D u_x + E u_y + F u = G
+    \end{equation*}
+}
+
+Os termos de ordem superior são mais importantes para a natureza da equação, logo a classificação da EDP é feita através do discriminante:
+{\large
+    \begin{equation*}
+        B(x,y)^2 - 4 A(x,y) C(x,y)
+    \end{equation*}
+}
+\begin{itemize}
+    \item \fbox{$B^2 - 4AC > 0$} - equação \textbf{hiperbólica} \\
+        \textit{ex:} equação da onda
+    \item \fbox{$B^2 - 4AC = 0$} - equação \textbf{parabólica} \\
+        \textit{ex:} equação do calor
+    \item \fbox{$B^2 - 4AC < 0$} - equação \textbf{elíptica} \\
+        \textit{ex:} equação de Laplace
+\end{itemize}
+$A$, $B$ e $C$ são funções, logo o \textbf{tipo pode mudar em função de $x$ e $y$}.
+
+
+
+\subsection{Método de Fourier (separação de variáveis)}
+
+Procuram se soluções da forma:
+{\large
+    \begin{equation*}
+        u(x,y) = X(x) T(y)
+    \end{equation*}
+}
+que correspondem à ideia de "ondas estacionárias": soluções cujo perfil X é constante no tempo mas com intensidade variável T.
+
+Tendo como exemplo a equação do calor: $u_t = u_{xx}$, temos:
+\begin{gather*}
+    u_t = X(x) T'(t) \quad , \quad u_{xx} = X''(x) T(t) \\
+    X(x) T'(t) = X''(x) T(t)
+\end{gather*}
+ou seja:
+{\large
+    \begin{equation*}
+        \frac{T'(t)}{T(t)} = \frac{X''(x)}{X(x)} = -\lambda
+    \end{equation*}
+}
+
+Assim sendo, temos duas EDOs lineares das quais sabemos as soluções para $\lambda > 0$:
+\begin{gather*}
+    T'(t) = -\lambda T(t) \quad \Rightarrow \quad T(t) = C e^{-\lambda t} \\
+    X''(x) = -\lambda X(x) \quad \Rightarrow \quad X(x) = A \cos(\sqrt{\lambda} x) + B \sin(\sqrt{\lambda} x)
+\end{gather*}
+logo sabemos que as equações:
+{\large
+    \begin{gather*}
+        u(x,t) = C e^{-\lambda t} \cos(\sqrt{\lambda} x) \\
+        u(x,t) = C e^{-\lambda t} \sin(\sqrt{\lambda} x) 
+    \end{gather*}
+}
+são soluções da equação. Para escolhermos entre estas soluções, usamos as condições de fronteira.
+
+
+
+\subsubsection{Condições de fronteira e iniciais}
+Para obtermos soluções especificas precisamos de:
+\begin{itemize}
+    \item Uma condição inicial: $u(x,0) = f(x)$
+    \item Condições de fronteira: valores de $u$ ou suas derivadas em $0$ e $L$.
+\end{itemize}
+As condições de fronteira mais comuns são:
+\begin{itemize}
+    \item \textbf{Condição de Dirichlet:} "arrefecimento perfeito", temperatura constante em 0 na fronteira
+        {\large
+            \begin{equation*}
+                u(0,t) = u(L,t) = 0
+            \end{equation*}
+        }
+        Para verificar a condição nula nos extremos a função $f(x)$ deve ter apenas a componentente seno, com $\sqrt{\lambda} L = n \pi$, logo, se $f(x) = \sin(\frac{\pi n}{L} x)$, então:
+        {\large
+            \begin{gather*}
+                \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N} \\
+                u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \sin(\frac{\pi n}{L} x)
+            \end{gather*}
+        }
+
+    \item \textbf{Condição de Neumann:} "isolamento perfeito", fluxo de calor nulo na fronteira
+        {\large
+            \begin{equation*}
+                u_x(0,t) = u_x(L,t) = 0
+            \end{equation*}
+        }
+        Para verificar a condição de derivada nula nos extremos a função $f(x)$ deve ter apenas a componentente cosseno, com $\sqrt{\lambda} L = n \pi$, logo, se $f(x) = \cos(\frac{\pi n}{L} x)$, então:
+        {\large
+            \begin{gather*}
+                \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N}_0 \\
+                u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \cos(\frac{\pi n}{L} x)
+            \end{gather*}
+        }
+\end{itemize}
+
+
+
+\subsubsection{Condição inicial com f(x) arbitrária}
+
+\noindent\textbf{Condições de fronteira de Dirichlet ($u(0,t) = u(L,t) = 0$)}
+
+Para uma condição inicial $u(x,0) = f(x)$ onde $f(x)$ é contínua (por partes) e admite a decomposição:
+\begin{equation*}
+    f(x) = \sum_{n=1}^{+\infty} \beta_n \sin(\frac{n \pi}{L} x)
+\end{equation*}
+onde
+\begin{equation*}
+    \beta_n = \frac{2}{L} \int_0^L f(x) \sin(\frac{n \pi}{L} x) dx
+\end{equation*}
+então a solução $u(x,t)$ é dada por:
+{\large
+    \begin{equation*}
+        u(x,t) = \sum_{n=1}^{\infty} \beta_n e^{-(\frac{n \pi}{L})^2 t} \sin(\frac{n \pi}{L} x)
+    \end{equation*}
+}
+
+
+\noindent\textbf{Condições de fronteira de Neumann ($u_x(0,t) = u_x(L,t) = 0$)}
+Para condições de fronteira de Neumann, a decomposição de $f(x)$ é feita em cossenos:
+\begin{equation*}
+    f(x) = \frac{\alpha_0}{2} + \sum_{n=1}^{+\infty} \alpha_n \cos(\frac{n \pi}{L} x)
+\end{equation*}
+com
+\begin{equation*}
+    \alpha_n = \frac{2}{L} \int_0^L f(x) \cos(\frac{n \pi}{L} x) dx
+\end{equation*}
+e a solução $u(x,t)$ é dada por:
+{\large
+    \begin{equation*}
+        u(x,t) = \frac{\alpha_0}{2} + \sum_{n=1}^{\infty} \alpha_n e^{-(\frac{n \pi}{L})^2 t} \cos(\frac{n \pi}{L} x)
+    \end{equation*}
+}
