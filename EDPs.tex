@@ -1,14 +1,12 @@
 \section{Equações derivadas parciais}
 
 \subsection{Método de Características}
-
 \subsubsection{Forma da equação}
 Equações (quase) lineares de primeira ordem:
-{\large
-    \begin{equation*}
+\begin{boxedeq}[0.3]
         a u_x + b u_y = c
-    \end{equation*}
-}
+\end{boxedeq}
+
 \begin{itemize}
     \item \textbf{Função incógnita:} $u = u(x,y)$
     \item \textbf{Funções conhecidas:} $a = a(x,y) $, $b = b(x,y)$, $c = c(x,y,u)$
@@ -22,23 +20,19 @@ A solução é dada pela solução do sistema de EDOs:
     u'(s) &= c(x,y,u(x,y))
 \end{align*}
 ou equivalentemente:
-{\large
-    \begin{equation*}
-        ds = \frac{dx}{a} = \frac{dy}{b} = \frac{du}{c}
-        \Leftrightarrow
-        \begin{cases}
-            \frac{dx}{a} = \frac{dy}{b} \\
-            \frac{dx}{a} = \frac{du}{c}
-        \end{cases}
-    \end{equation*}
-}
+\begin{boxedeq}
+    ds = \frac{dx}{a} = \frac{dy}{b} = \frac{du}{c}
+    \Leftrightarrow
+    \begin{cases}
+        \frac{dx}{a} = \frac{dy}{b} \\
+        \frac{dx}{a} = \frac{du}{c}
+    \end{cases}
+\end{boxedeq}
 
 Ao resolver o sistema, obtemos duas constantes de integração $C_1$ e $C_2$. Podemos obter a solução geral da EDP através da relação entre as constantes:
-{\large
-    \begin{equation*}
-        C_2 = f(C_1)
-    \end{equation*}
-}
+\begin{boxedeq}[0.2]
+    C_2 = f(C_1)
+\end{boxedeq}
 
 
 
@@ -48,18 +42,15 @@ Ao resolver o sistema, obtemos duas constantes de integração $C_1$ e $C_2$. Po
 
 \subsection{Classificação de equações lineares de segunda ordem}
 Forma geral da EDP linear de segunda ordem em 2D:
-{\large
-    \begin{equation*}
+\begin{equation*}
         A u_{xx} + B u_{xy} + C u_{yy} + D u_x + E u_y + F u = G
-    \end{equation*}
-}
+\end{equation*}
 
 Os termos de ordem superior são mais importantes para a natureza da equação, logo a classificação da EDP é feita através do discriminante:
-{\large
-    \begin{equation*}
-        B(x,y)^2 - 4 A(x,y) C(x,y)
-    \end{equation*}
-}
+\begin{boxedeq}[0.4]
+    B(x,y)^2 - 4 A(x,y) C(x,y)
+\end{boxedeq}
+
 \begin{itemize}
     \item \fbox{$B^2 - 4AC > 0$} - equação \textbf{hiperbólica} \\
         \textit{ex:} equação da onda
@@ -75,12 +66,11 @@ $A$, $B$ e $C$ são funções, logo o \textbf{tipo pode mudar em função de $x$
 \subsection{Método de Fourier (separação de variáveis)}
 
 Procuram se soluções da forma:
-{\large
-    \begin{equation*}
-        u(x,y) = X(x) T(y)
-    \end{equation*}
-}
-que correspondem à ideia de "ondas estacionárias": soluções cujo perfil X é constante no tempo mas com intensidade variável T.
+\begin{boxedeq}[0.3]
+    u(x,y) = X(x) T(y)
+\end{boxedeq}
+
+Estas soluções correspondem à ideia de "ondas estacionárias": soluções cujo perfil X é constante no tempo mas com intensidade variável T.
 
 Tendo como exemplo a equação do calor: $u_t = u_{xx}$, temos:
 \begin{gather*}
@@ -88,25 +78,24 @@ Tendo como exemplo a equação do calor: $u_t = u_{xx}$, temos:
     X(x) T'(t) = X''(x) T(t)
 \end{gather*}
 ou seja:
-{\large
-    \begin{equation*}
-        \frac{T'(t)}{T(t)} = \frac{X''(x)}{X(x)} = -\lambda
-    \end{equation*}
-}
+\begin{boxedeq}[0.3]
+    \frac{T'(t)}{T(t)} = \frac{X''(x)}{X(x)} = -\lambda
+\end{boxedeq}
 
 Assim sendo, temos duas EDOs lineares das quais sabemos as soluções para $\lambda > 0$:
 \begin{gather*}
     T'(t) = -\lambda T(t) \quad \Rightarrow \quad T(t) = C e^{-\lambda t} \\
     X''(x) = -\lambda X(x) \quad \Rightarrow \quad X(x) = A \cos(\sqrt{\lambda} x) + B \sin(\sqrt{\lambda} x)
 \end{gather*}
-logo sabemos que as equações:
-{\large
-    \begin{gather*}
-        u(x,t) = C e^{-\lambda t} \cos(\sqrt{\lambda} x) \\
-        u(x,t) = C e^{-\lambda t} \sin(\sqrt{\lambda} x) 
-    \end{gather*}
-}
-são soluções da equação. Para escolhermos entre estas soluções, usamos as condições de fronteira.
+logo obtemos duas soluções possíveis da equação:
+\begin{boxedeq}[0.4]
+    u(x,t) = C e^{-\lambda t} \cos(\sqrt{\lambda} x)
+\end{boxedeq}
+\begin{boxedeq}[0.4]
+    u(x,t) = C e^{-\lambda t} \sin(\sqrt{\lambda} x)
+\end{boxedeq}
+
+Para escolhermos entre estas soluções, usamos as condições de fronteira.
 
 
 
@@ -119,32 +108,28 @@ Para obtermos soluções especificas precisamos de:
 As condições de fronteira mais comuns são:
 \begin{itemize}
     \item \textbf{Condição de Dirichlet:} "arrefecimento perfeito", temperatura constante em 0 na fronteira
-        {\large
-            \begin{equation*}
-                u(0,t) = u(L,t) = 0
-            \end{equation*}
-        }
+        \begin{boxedeq}[0.3]
+            u(0,t) = u(L,t) = 0
+        \end{boxedeq}
         Para verificar a condição nula nos extremos a função $f(x)$ deve ter apenas a componentente seno, com $\sqrt{\lambda} L = n \pi$, logo, se $f(x) = \sin(\frac{\pi n}{L} x)$, então:
-        {\large
-            \begin{gather*}
-                \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N} \\
-                u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \sin(\frac{\pi n}{L} x)
-            \end{gather*}
-        }
+        \begin{boxedeq}[0.3]
+            \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N}
+        \end{boxedeq}
+        \begin{boxedeq}[0.4]
+            u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \sin(\frac{\pi n}{L} x)
+        \end{boxedeq}
 
     \item \textbf{Condição de Neumann:} "isolamento perfeito", fluxo de calor nulo na fronteira
-        {\large
-            \begin{equation*}
-                u_x(0,t) = u_x(L,t) = 0
-            \end{equation*}
-        }
+        \begin{boxedeq}[0.3]
+            u_x(0,t) = u_x(L,t) = 0
+        \end{boxedeq}
         Para verificar a condição de derivada nula nos extremos a função $f(x)$ deve ter apenas a componentente cosseno, com $\sqrt{\lambda} L = n \pi$, logo, se $f(x) = \cos(\frac{\pi n}{L} x)$, então:
-        {\large
-            \begin{gather*}
-                \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N}_0 \\
-                u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \cos(\frac{\pi n}{L} x)
-            \end{gather*}
-        }
+        \begin{boxedeq}[0.3]
+            \sqrt{\lambda} = \frac{n \pi}{L}, \quad n \in \mathbb{N}_0
+        \end{boxedeq}
+        \begin{boxedeq}[0.4]
+            u(x,t) = e^{-(\frac{\pi n}{L})^2 t} \cos(\frac{\pi n}{L} x)
+        \end{boxedeq}
 \end{itemize}
 
 
@@ -162,11 +147,9 @@ onde
     \beta_n = \frac{2}{L} \int_0^L f(x) \sin(\frac{n \pi}{L} x) dx
 \end{equation*}
 então a solução $u(x,t)$ é dada por:
-{\large
-    \begin{equation*}
-        u(x,t) = \sum_{n=1}^{\infty} \beta_n e^{-(\frac{n \pi}{L})^2 t} \sin(\frac{n \pi}{L} x)
-    \end{equation*}
-}
+\begin{boxedeq}
+    u(x,t) = \sum_{n=1}^{\infty} \beta_n e^{-(\frac{n \pi}{L})^2 t} \sin(\frac{n \pi}{L} x)
+\end{boxedeq}
 
 
 \noindent\textbf{Condições de fronteira de Neumann ($u_x(0,t) = u_x(L,t) = 0$)}
@@ -179,8 +162,6 @@ com
     \alpha_n = \frac{2}{L} \int_0^L f(x) \cos(\frac{n \pi}{L} x) dx
 \end{equation*}
 e a solução $u(x,t)$ é dada por:
-{\large
-    \begin{equation*}
-        u(x,t) = \frac{\alpha_0}{2} + \sum_{n=1}^{\infty} \alpha_n e^{-(\frac{n \pi}{L})^2 t} \cos(\frac{n \pi}{L} x)
-    \end{equation*}
-}
+\begin{boxedeq}
+    u(x,t) = \frac{\alpha_0}{2} + \sum_{n=1}^{\infty} \alpha_n e^{-(\frac{n \pi}{L})^2 t} \cos(\frac{n \pi}{L} x)
+\end{boxedeq}

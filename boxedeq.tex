@@ -1,0 +1,25 @@
+\usepackage{amsmath}    % for equation environments
+\usepackage{tcolorbox}  % for boxed display
+\usepackage{varwidth}   % for horizontal shrink-wrapping
+
+% -------------------------------
+% Boxed equation environment
+% -------------------------------
+\newenvironment{boxedeq}[1][0.5]{%
+  \begin{tcolorbox}[
+        colback=blue!10,
+        colframe=blue!80!black,
+        width=#1\textwidth,
+        center,
+    ]
+    % remove asymmetric spacing in display math
+    \setlength{\abovedisplayskip}{0pt}%
+    \setlength{\belowdisplayskip}{0pt}%
+    \setlength{\abovedisplayshortskip}{0pt}%
+    \setlength{\belowdisplayshortskip}{0pt}%
+    \large
+    \begin{equation*}
+}{%
+    \end{equation*}
+  \end{tcolorbox}
+}
