@@ -1,17 +1,19 @@
-\section{Integrais}
+\section{Integração múltipla}
 
-Integrais em $\mathbb{R}^2$, com $\mathbb{D} \in \mathbb{R}^2$:
-{\Large
+\subsection{Integrais em \texorpdfstring{$\mathbb{R}^2$}{R\^2}}
+
+Com $\mathbb{D} \in \mathbb{R}^2$ sendo o domínio de integração:
+{\large
     \begin{equation*}
         \int\int_{\mathbb{D}}f(x,y)\,dx\,dy
     \end{equation*}
 }
 
-\subsection{Tipos de domínio:}
+\subsubsection{Tipos de domínio:}
 \begin{itemize}
     \item \textbf{Tipo 1}:
         \subitem $\tcboxmath[colframe=red]{a<x<b} \qquad \wedge \qquad  \tcboxmath[colframe=blue]{f_1(x)<y<f_2(x)}$
-        \subitem \begin{figure}[ht]
+        \subitem \begin{figure}[H]
             \centering
             \begin{tikzpicture}
                 \begin{axis}[
@@ -54,7 +56,7 @@ Integrais em $\mathbb{R}^2$, com $\mathbb{D} \in \mathbb{R}^2$:
         \end{figure}
     \item \textbf{Tipo 2}:
         \subitem $\tcboxmath[colframe=blue]{g_1(y)<x<g_2(y)} \qquad \wedge \qquad \tcboxmath[colframe=red]{c<y<d}$
-        \subitem \begin{figure}[ht]
+        \subitem \begin{figure}[H]
             \centering
             \begin{tikzpicture}
                 \begin{axis}[
@@ -97,7 +99,7 @@ Integrais em $\mathbb{R}^2$, com $\mathbb{D} \in \mathbb{R}^2$:
         \end{figure}
 \end{itemize}
 
-\subsection{Cálculo do limite}
+\subsubsection{Cálculo do integral}
 
 Seja $\mathbb{D}$ um domínio de \textbf{tipo 1}:
 \begin{boxedeq}[0.7]
@@ -110,3 +112,87 @@ Seja $\mathbb{D}$ um domínio de \textbf{tipo 2}:
 \end{boxedeq}
 
 Se o domínio for de tipo 1 e tipo 2, os dois integrais \textbf{são iguais}.
+
+
+\subsection{Integrais em \texorpdfstring{$\mathbb{R}^3$}{R\^3}}
+Com domínio de integração $\mathbb{V} \in \mathbb{R}^3$:
+{\Large
+    \begin{equation*}
+        \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz
+    \end{equation*}
+}
+
+\subsubsection{Tipos de domínio:}
+\begin{itemize}
+    \item \textbf{Tipo 1}:
+        \subitem $f_1(x,y) < z < f_2(x,y) \qquad , \qquad \text{para todo} (x,y) \in \mathbb{B}$
+        \subitem Onde $\mathbb{B}$ é um domínio de tipo 1 ou 2 em $\mathbb{R}^2$.
+    \item \textbf{Tipo 2} (relativamente a $XoY$):
+        \subitem $a<z<b \qquad \wedge \qquad (x,y) \in A(z)$
+        \subitem Sendo $A(z)$ uma secção paralela ao plano $XoY$.
+        
+\end{itemize}
+
+\subsubsection{Cálculo do integral}
+
+Se $\mathbb{V}$ for um domínio de \textbf{tipo 1}:
+\begin{boxedeq}[0.8]
+    \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \int\int_\mathbb{B}\left(\int_{f_1(x,y)}^{f_2(x,y)} f(x,y,z)\,dz\right)\,dx\,dy
+\end{boxedeq}
+
+Se $\mathbb{V}$ for um domínio de \textbf{tipo 1}:
+\begin{boxedeq}[0.8]
+    \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \int_a^b\left(\int\int_{A(z)} f(x,y,z)\,dx\,dy\right)\,dz
+\end{boxedeq}
+
+
+
+\subsection{Mudança de coordenadas}
+Dada uma mudança de coordenadas $(u,v) \rightarrow (x,y) = s(u,v)$, do domínio $\mathbb{D}_{u,v}^{*}$ para $\mathbb{D}_{x,y}$, o integral em $(x,y)$ pode ser calculado como:
+\begin{boxedeq}[0.9]
+    \int\int_{\mathbb{D}_{x,y}} f(x,y)\,dx\,dy = \int\int_{\mathbb{D}_{u,v}^{*}} f(x(u,v),y(u,v))\left|\det\left[\frac{\partial(x,y)}{\partial(u,v)}\right]\right|\,du\,dv
+\end{boxedeq}
+
+\subsubsection{Coordenadas polares}
+A mudança de variável para coordenadas polares é dada por:
+\begin{boxedeq}[0.4]
+    s(r,\theta) = \begin{cases}
+        x = r \cos(\theta) \\
+        y = r \sin(\theta)
+    \end{cases}
+\end{boxedeq}
+
+Ao mudar para coordenadas polares, o Jacobiano dá a mudança:
+\begin{boxedeq}[0.3]
+    dx\,dy = \tcboxmath[left=0pt, right=0pt, colframe=red!75!black]{r} \,dr\,d\theta
+\end{boxedeq}
+
+\subsubsection{Coordenadas cilíndricas}
+A mudança de variável para coordenadas cilíndricas é dada por:
+\begin{boxedeq}[0.4]
+    s(r,\theta,z) = \begin{cases}
+        x = r \cos(\theta) \\
+        y = r \sin(\theta) \\
+        z = z
+    \end{cases}
+\end{boxedeq}
+
+Ao mudar para coordenadas cilindricas, o Jacobiano dá a mudança:
+\begin{boxedeq}[0.4]
+    dx\,dy\,dz = \tcboxmath[left=0pt, right=0pt, colframe=red!75!black]{r} \,dr\,d\theta\,dz
+\end{boxedeq}
+
+\subsubsection{Coordenadas esféricas}
+A mudança de variável para coordenadas esféricas é dada por:
+\begin{boxedeq}[0.5]
+    s(R,\theta,\varphi) = \begin{cases}
+        x = R \cos(\theta)\sin(\varphi) \\
+        y = R \sin(\theta)\sin(\varphi) \\
+        z = R \cos(\varphi)
+    \end{cases}
+\end{boxedeq}
+
+Ao mudar para coordenadas esféricas, o Jacobiano dá a mudança:
+\begin{boxedeq}[0.45]
+    dx\,dy\,dz = \tcboxmath[left=0pt, right=0pt, colframe=red!75!black]{R^2\sin(\varphi)}\,dR\,d\theta\,d\varphi
+\end{boxedeq}
