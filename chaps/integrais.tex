@@ -1,0 +1,112 @@
+\section{Integrais}
+
+Integrais em $\mathbb{R}^2$, com $\mathbb{D} \in \mathbb{R}^2$:
+{\Large
+    \begin{equation*}
+        \int\int_{\mathbb{D}}f(x,y)\,dx\,dy
+    \end{equation*}
+}
+
+\subsection{Tipos de domínio:}
+\begin{itemize}
+    \item \textbf{Tipo 1}:
+        \subitem $\tcboxmath[colframe=red]{a<x<b} \qquad \wedge \qquad  \tcboxmath[colframe=blue]{f_1(x)<y<f_2(x)}$
+        \subitem \begin{figure}[ht]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines=middle,
+                    xmin=-2, xmax=1,
+                    ymin=-1, ymax=1.5,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
+                    % Upper curve
+                    \addplot[name path=upper1, blue, thick, domain=-2:1]
+                        {e^x};
+                    
+                    % Lower curve
+                    \addplot[name path=lower1, blue, thick, trig format=rad, domain=-2:1]
+                        {sin(x)};
+                    
+                    % x = -1
+                    \addplot[red]
+                        ({-1},{x});
+                    
+                    % x = -1
+                    \addplot[red]
+                        ({0},{x});
+    
+                    % Shaded region
+                    \addplot[
+                        blue,
+                        pattern=north east lines,
+                        pattern color=blue,
+                        opacity=0.5
+                    ]
+                        fill between[
+                            of=upper1 and lower1,
+                            soft clip={domain=-1:0}
+                        ];
+                \end{axis}
+            \end{tikzpicture}
+            \caption{Domínio de \textbf{tipo 1}}
+        \end{figure}
+    \item \textbf{Tipo 2}:
+        \subitem $\tcboxmath[colframe=blue]{g_1(y)<x<g_2(y)} \qquad \wedge \qquad \tcboxmath[colframe=red]{c<y<d}$
+        \subitem \begin{figure}[ht]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines=middle,
+                    xmin=-0.5, xmax=1.5,
+                    ymin=-0.5, ymax=1.1,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
+                    % Upper curve
+                    \addplot[name path=upper2, blue, thick, domain=0:1.5]
+                        {sqrt(x)};
+                    
+                    % Lower curve
+                    \addplot[name path=lower2, blue, thick, domain=-0.5:1.5]
+                        {x^2};
+                    
+                    % y = 0
+                    \addplot[red]
+                        {0};
+                    
+                    % y = 1
+                    \addplot[red]
+                        {1};
+    
+                    % Shaded region
+                    \addplot[
+                        blue,
+                        pattern=north east lines,
+                        pattern color=blue,
+                        opacity=0.5
+                    ]
+                        fill between[
+                            of=upper2 and lower2,
+                            soft clip={domain=0:1}
+                        ];
+                \end{axis}
+            \end{tikzpicture}
+            \caption{Domínio de \textbf{tipo 2}}
+        \end{figure}
+\end{itemize}
+
+\subsection{Cálculo do limite}
+
+Seja $\mathbb{D}$ um domínio de \textbf{tipo 1}:
+\begin{boxedeq}[0.7]
+    \int\int_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{a}^{b}\left(\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\right)\,dx
+\end{boxedeq}
+
+Seja $\mathbb{D}$ um domínio de \textbf{tipo 2}:
+\begin{boxedeq}[0.7]
+    \int\int_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{c}^{d}\left(\int_{g_1(x)}^{g_2(x)} f(x,y)\,dx\right)\,dy
+\end{boxedeq}
+
+Se o domínio for de tipo 1 e tipo 2, os dois integrais \textbf{são iguais}.
