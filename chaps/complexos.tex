@@ -1,1 +1,195 @@
 \section{Complexos}
+\subsection{Revisão}
+Definição de números complexos
+\begin{align*}
+    i^2=-1& \\
+    z = x+iy& \qquad x\in\mathbb{R} = \text{parte real} \quad y\in\mathbb{R} = \text{parte imaginária} \\
+    \overline{z} = x - iy& \qquad \text{é o conjugado de $z$}
+\end{align*}
+
+Representa-se os numeros complexos no plano complexo onde cada ponto $(x,y)$ corresponde ao complexo $z=x+iy$:
+\begin{align*}
+    |z| = r = \sqrt{x^2 + y^2} \qquad &\geq 0 \\
+    \text{arg}\ z = \theta \qquad &\in [0, 2\pi[\ \text{ou}\ ]-\pi,\pi]
+\end{align*}
+
+Algumas identidades fundamentais:
+\begin{align*}
+    z\overline{z} &= |z|^2 \\
+    e^{ix} &= \cos{x} + i\sin{x} \\
+    z &= r e^{i\theta} \\
+    e^{ixn} &= \left(\cos x + i\sin x\right)^n = \cos(nx) + i\sin(nx)
+\end{align*}
+
+
+
+\subsection{Funções Complexas}
+Uma função em $\mathbb{C}$ é definida por:
+\begin{equation*}
+    f(z) = u(x,y) + i v(x,y), \qquad z=x+iy
+\end{equation*}
+
+\subsubsection{Derivadas Complexas}
+A definição de derivada em $\mathbb{C}$ é a mesma que em $\mathbb{R}$, mas usa se a terminologia \textbf{holomorfa} em vez de \textbf{diferenciável}.
+
+Para que uma função seja holomorfa, tem que obedecer a \textbf{\textit{ambas}} as equações de \textbf{Cauchy-Riemann}:
+\begin{boxedeq}[0.2]
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+\end{boxedeq}
+\begin{boxedeq}[0.2]
+    \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
+\end{boxedeq}
+
+\noindent Uma função é holomorfa quando:
+\begin{itemize}
+    \item É um polinómio;
+    \item É uma soma, produto, ou quociente de funções holomorfas;
+    \item É uma função racional e não tem singularidades;
+    \item É uma função elementar como sin, cos, exp, ln etc.
+\end{itemize}
+
+\begin{boxedeq}
+    \text{Se $\frac{\partial f}{\partial\overline{z}} \neq 0$ então $f$ não é holomorfa.}
+\end{boxedeq}
+
+\subsubsection{Séries de potências}
+Algumas séries de potências importantes:
+\begin{align*}
+    e^z& &1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\ldots& &\sum_{k=0}^{+\infty}\frac{z^k}{k!}& &z\in\mathbb{C} \\
+    \\
+    \sin z& &z-\frac{z^3}{3!}+\frac{z^5}{5!}-\frac{z^7}{7!}+\ldots& &\sum_{k=0}^{+\infty}\frac{(-1)^k z^{2k+1}}{(2k+1)!}& &z\in\mathbb{C} \\
+    \\
+    \cos z& &1-\frac{z^2}{2!}+\frac{z^4}{4!}-\frac{z^6}{6!}+\ldots& &\sum_{k=0}^{+\infty}\frac{(-1)^k z^{2k}}{(2k)!}& &z\in\mathbb{C} \\
+    \\
+    \frac{1}{1-z}& &1+z+z^2+z^3+\ldots& &\sum_{k=0}^{+\infty}z^k& &|z|<1
+\end{align*}
+
+\subsubsection{Funções hiperbólicas}
+Definimos as funções sinh e cosh como:
+\begin{align*}
+    \sinh z &= \frac{e^z-e^{-z}}{2} \\
+    \cosh z &= \frac{e^z+e^{-z}}{2}
+\end{align*}
+onde
+\begin{equation*}
+    \cosh^2 z - \sinh^2 z = 1
+\end{equation*}
+e que expandindo em série de potências obtemos:
+\begin{align*}
+    \sinh z& &z+\frac{z^3}{3!}+\frac{z^5}{5!}+\frac{z^7}{7!}+\ldots& &\sum_{k=0}^{+\infty}\frac{z^{2k+1}}{(2k+1)!}& &z\in\mathbb{C} \\
+    \cosh z& &1+\frac{z^2}{2!}+\frac{z^4}{4!}+\frac{z^6}{6!}+\ldots& &\sum_{k=0}^{+\infty}\frac{z^{2k}}{(2k)!}& &z\in\mathbb{C} \\
+\end{align*}
+
+A partir desta definição obtemos uma série de identidades:
+\begin{align*}
+    \cos z &= \cosh(iz) \\
+    \sin z &= -i\sinh(iz) \\
+    \cos x &= \frac{e^{ix}+e^{-ix}}{2} \\
+    \sin x &= \frac{e^{ix}-e^{-ix}}{2i}
+\end{align*}
+
+\subsubsection{Logaritmo Complexo}
+Para definirmos o logaritmo complexo devemos restringir o argumento de $z$ a $]-\pi,\pi]$, definindo assim:
+\begin{boxedeq}
+    \ln z = \ln r + i\theta = \ln |z| + i\ \text{arg}\ z
+\end{boxedeq}
+
+O logaritmo fica definido no domínio $\mathbb{D} = \mathbb{C} \setminus \{x\in\mathbb{R}:x\leq0\}$
+e que admite a representação em série:
+\begin{align*}
+    \ln z& &(z-1)-\frac{(z-1)^2}{2}+\frac{(z-1)^3}{3}-\frac{(z-1)^4}{4!}+\ldots& &\sum_{k=1}^{+\infty}\frac{(-1)^{k-1}}{k}(z-1)^{k}& &|z-1|<1 \\
+\end{align*}
+
+
+
+\subsection{Integrais Complexos}
+\subsubsection{Teorema de Cauchy}
+Dada $f$ uma função \textbf{holomorfa} num domínio (região) $\mathbb{D}$ simplesmente conexo, e uma curva $\mathcal{C}$ que delimita $\mathbb{D}$ então o teorema de Cauchy diz-nos que:
+\begin{boxedeq}[0.3]
+    \oint_\mathcal{C} f(z)\,dz = 0
+\end{boxedeq}
+
+\subsubsection{Fórmula integral de Cauchy}
+$\mathcal{C}$ é uma curva fechada simples que faz uma volta em torno do ponto $a\in\mathbb{C}$ percorrida no \textbf{sentido positivo}, e $f$ é uma função holomorfa, então:
+\begin{boxedeq}[0.4]
+    f(a)=\frac{1}{2\pi i}\oint_\mathcal{C} \frac{f(z)}{z-a}\,dz
+\end{boxedeq}
+e para as mesmas condições:
+\begin{boxedeq}
+    f^{(n)}(a) = \frac{n!}{2\pi i}\oint_{\mathcal{C}}\frac{f(z)}{(z-a)^{n+1}}\,dz
+\end{boxedeq}
+
+\subsubsection{Séries de Laurent}
+Se uma função $f$ tem uma singularidade isolada num ponto $a$ podemos representar a função numa série de Laurent, que inclui potências de $\frac{1}{z}$:
+\begin{equation*}
+    f(z) = \tcboxmath[title=Parte regular]{\sum_{k=0}^{+\infty} a_k(z-a)^k} + \tcboxmath[title=Parte singular]{\sum_{k=1}^{+\infty} \frac{b_k}{(z-a)^k}}
+\end{equation*}
+que pode alternativamente ser escrita como uma série de potencias com duas "caudas", onde em vez de $b_k$ escrevemos $a_{-k}$:
+\begin{equation*}
+    f(z) = \sum_{-\infty}^{+\infty}a_k(z-a)^k
+\end{equation*}
+
+Para calcular os coeficientes $a_k$ usamos a formula:
+\begin{boxedeq}[0.4]
+    a_k = \frac{1}{2\pi i}\oint_\mathcal{C}\frac{f(z)}{(z-a)^{k+1}}\,dz 
+\end{boxedeq}
+
+Esta fórmula é válida para todo o $k\in]-\infty,+\infty[$
+
+
+
+\subsubsection{Classificação de singularidades (isoladas)}
+Dada a função $g(z)$ que tem uma singularidade isolada em $a\in\mathbb{C}$:
+\begin{itemize}
+    \item \textbf{a} é um \textbf{polo de ordem n}$\geq1$ se $g(z)=\frac{f(z)}{(z-a)^n}$ \textbf{ou seja} se:
+    \begin{boxedeq}[0.4]
+        \lim_{z\to a}g(z)(z-a)^n \quad \text{existe em $\mathbb{C}$}
+    \end{boxedeq}
+    ou se a \textbf{série de Laurent} tem até \textbf{n} termos de expoente negativo:
+    \begin{boxedeq}[0.31]
+        g(z) = \sum_{k=-n}^{+\infty} a_k (z-a)^k
+    \end{boxedeq}
+    \item \textbf{a} é uma \textbf{singularidade removível} se:
+    \begin{boxedeq}[0.4]
+        \lim_{z\to a}g(z) \quad \text{existe em $\mathbb{C}$}
+    \end{boxedeq}
+    ou se admite uma expansão em série de potências, que corresponde a \textbf{n=0} na definição anterior:
+    \begin{boxedeq}[0.3]
+        g(z) = \sum_{k=0}^{+\infty}a_k(z-a)^k
+    \end{boxedeq}
+    \item \textbf{a} é uma \textbf{singularidade essencial} se não é dos outros tipos, i.e., se para qualquer $n\geq1$:
+    \begin{boxedeq}[0.55]
+        \lim_{z\to a}g(z)(z-a)^n \quad \text{não existe para qualquer $n$}
+    \end{boxedeq}
+    ou se a \textbf{série de Laurent} tem infinitos termos de potência negativa:
+    \begin{boxedeq}[0.3]
+        g(z) = \sum_{-\infty}^{+\infty} a_k (z-a)^k
+    \end{boxedeq}
+\end{itemize}
+
+
+
+\subsubsection{Resíduos}
+O \textbf{resíduo de g em a}, $\text{Res}(g;a)$ é o valor do coeficiente $a_{-1}$, ou seja, o coeficiente do termo $\frac{1}{z-a}$ na série de Laurent.
+\begin{itemize}
+    \item Se \textbf{a é isolada}, então:
+    \begin{boxedeq}[0.21]
+        \text{Res}(g;a) = 0
+    \end{boxedeq}
+    \item Se \textbf{a é um polo de ordem 1} então:
+    \begin{boxedeq}[0.35]
+        \text{Res}(g;a) = \lim_{z\to a} g(z)(z-a)
+    \end{boxedeq}
+    \item Se \textbf{a é um polo de ordem n} então:
+    \begin{boxedeq}[0.55]
+        \text{Res}(g;a) = \frac{1}{(n-1)!} \lim_{z\to a} \frac{d^{n-1}}{dz^{n-1}}[g(z)(z-a)^n]
+    \end{boxedeq}
+\end{itemize}
+
+
+
+\subsubsection{Teorema dos Resíduos}
+Finalmente, para uma curva simples e fechada $\mathcal{C}$ em $\mathbb{C}$, e uma função $g$, holomorfa em toda a região delimitada por $\mathcal{C}$, exceto num número finito de singularidades $a_1, \ldots, a_m$, então:
+\begin{boxedeq}[0.4]
+    \oint_{\mathcal{C}} g(z)\,dz = 2\pi i \sum_{k=1}^{m} \text{Res}(g;a_k)
+\end{boxedeq}
