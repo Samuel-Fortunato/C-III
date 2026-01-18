@@ -193,3 +193,20 @@ Finalmente, para uma curva simples e fechada $\mathcal{C}$ em $\mathbb{C}$, e um
 \begin{boxedeq}[0.4]
     \oint_{\mathcal{C}} g(z)\,dz = 2\pi i \sum_{k=1}^{m} \text{Res}(g;a_k)
 \end{boxedeq}
+
+
+
+\subsection{Integrais Reais (através de resíduos)}
+Quer se calcular o integral:
+\begin{equation*}
+    \int_{-\infty}^{+\infty} f(x)\,dx
+\end{equation*}
+
+Este pode ser calculado através de resíduos usando:
+\begin{gather*}
+    I_R = \int_{C_R} f(z)\,dz \\
+    \\
+    \lim_{R\to+\infty} I_R = \lim_{R\to+\infty} f(z)\,dz = \\
+    \lim_{R\to+\infty} \left(\int_{C_{1,R}} f(z)\,dz + \int_{C_{2,R}} f(z)\,dz \right) = \\
+    \int_{-\infty}^{+\infty} f(x)\,dx + \cancelto{0}{\lim_{R\to+\infty} \int_{C_{2,R}} f(z)\,dz}
+\end{gather*}
