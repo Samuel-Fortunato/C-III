@@ -1,0 +1,115 @@
+\section{Integrais de Linha e Superfície}
+
+\subsection{Integrais de linha}
+\subsubsection{Comprimento de uma curva}
+Dada uma curva regular $\mathcal{C}$ em $\mathbb{R}^2$, esta pode ser  parametrizda por:
+\begin{equation*}
+    r(t) = (x(t),y(t)),\ t\in[a,b]
+\end{equation*}
+se $r' \neq 0$ então podemos definir o \textbf{comprimento da curva} $\mathcal{C}$ como o integral:
+\begin{boxedeq}[0.4]
+    \mu(\mathcal{C}) = \oint_{\mathcal{C}} ds = \int_{a}^{b} ||r'(t)||\,dt
+\end{boxedeq}
+
+
+
+\subsubsection{Integral de linha de 1ª espécie}
+\textit{i.e.} integral de um campo escalar $f$ ao longo de uma curva $\mathcal{C}$:
+\begin{boxedeq}
+    \oint_{\mathcal{C}} f\,ds = \int_{a}^{b} f(\textcolor{red}{r(t)})\ ||    \textcolor{red}{r'(t)}||\,dt
+\end{boxedeq}
+
+\subsubsection{Integral de linha de 2ª espécie}
+\textit{i.e.} integral de um campo vetorial $F = (P,Q,R)$ ao longo de uma curva $\mathcal{C}$:
+\begin{boxedeq}[0.7]
+    \oint_{\mathcal{C}} F \cdot dr = \int_{a}^{b} F(\textcolor{red}{r(t)})\cdot\textcolor{red}{r'(t)}\,dt = \oint_{\mathcal{C}} P\,dx + Q\,dy + R\,dz
+\end{boxedeq}
+
+Este integral denomina-se de \textbf{fluxo de $F$ ao longo de $\mathcal{C}$}. Se $\mathcal{C}$ é fechada, então o integral diz-se a \textbf{circulação de $F$ com respeito a $\mathcal{C}$}
+
+
+\paragraph{Campos conservativos}
+Um campo vetorial $F$ diz-se conservativo se é o gradiente de uma função escalar $f$. Se um o campo é conservativo: $F = \nabla f$, então o integral de linha de $F$ não depende da forma do caminho.
+
+Para uma função $F = (P,Q)$ ser conservativa, tem que obdecer à equação:
+\begin{boxedeq}[0.2]
+    \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}
+\end{boxedeq}
+
+Em 3D uma função $F = (P,Q,R)$ é conservativa se:
+\begin{equation*}
+    \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \quad \wedge \quad \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x} \quad \wedge \quad \frac{\partial Q}{\partial z} = \frac{\partial R}{\partial y}
+\end{equation*}
+mas isto pode ser expressado através do rotacional:
+\begin{boxedeq}
+    \text{rot}\ F = \nabla \times F = 0
+\end{boxedeq}
+
+
+
+\subsection{Integrais de superfície}
+Uma superfície pode ser descrita por dois parâmetros, normalmente chamados $u$ e $v$, e definidos num domínio $\mathbb{D}$. Uma superfície defíne-se como os pontos $(x,y,z)$ que são imagem da função $s$ que define a superfície: $s(u,v) = (x(u,v), y(u,v), z(u,v))$
+
+\subsubsection{Integais de superfície de 1ª espécie}
+Define-se o integral de superfície de $f$ sobre $\mathcal{S}$ como:
+\begin{boxedeq}[0.7]
+    \iint_{\mathcal{S}} f(x,y,z) \textcolor{red}{\,dS} = \iint_{\mathbb{D}_{u,v}} f(\textcolor{red}{s(u,v)})\ ||\textcolor{red}{\partial_u s \times \partial_v s}|| \,du\,dv
+\end{boxedeq}
+
+\subsubsection{Integais de superfície de 2ª espécie}
+Define-se o integral de superfície de $F=(P,Q,R)$ sobre $\mathcal{S}$ como:
+\begin{boxedeq}[0.7]
+    \iint_{\mathcal{S}} F\cdot\hat{n}_{\text{ext}} \textcolor{red}{\,dS} = \iint_{\mathbb{D}_{u,v}} F(\textcolor{red}{s(u,v)})\cdot (\textcolor{red}{\partial_u s \times \partial_v s})_{\text{ext}} \,du\,dv
+\end{boxedeq}
+
+A este integral, chama-se o \textbf{fluxo de $F$ através de $\mathcal{S}$}
+
+Podemos representar este integral de forma altenativa:
+\begin{equation*}
+    \iint_{\mathcal{S}} F\cdot\hat{n}_{\text{ext}}\,dS = \iint_{\mathcal{S}} P\,dy\,dz - Q\,dx\,dz + R\,dx\,dy
+\end{equation*}
+
+
+
+\subsection{Teoremas Integrais}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{c|c|c}
+        \textbf{Teorema} & \textbf{trnasforma} & \textbf{em} \\
+        \hline
+        \textbf{Green}  & Int. linha em 2D & Int. duplo em 2D \\
+        \textbf{Stokes}  & Int. linha em 3D & Int. superfície do rot \\
+        \textbf{Gauss}  & Int. superficie (fluxo) & Int. triplo da div em 3D \\
+    \end{tabular}
+    \caption{Resumo dos Teoremas Integrais}
+\end{table}
+
+\subsubsection{Teorema de Green}
+Dado um domínio (região) $\mathbb{D} \in \mathbb{R}^2$ cujo \textbf{bordo} é uma curva, $\mathcal{C} = \partial\mathbb{D}$, fechada parameterizável (em sentido \textbf{direto}, ou seja, sentido \textbf{anti-horário}), o teorema de Green garante que:
+\begin{boxedeq}
+    \oint_{\mathcal{C}} F\cdot\,dr = \iint_{\mathbb{D}} \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\,dx\,dy
+\end{boxedeq}
+
+Teorema de Green $\approx$ Teorema de Stokes, restrito a 2D
+
+\subsubsection{Teorema de Stokes}
+Teorema de Stokes $\approx$ Teorema de Green, mas em 3D
+
+Sendo $\mathcal{S}$ uma qualquer superficie, tal que a sua \textbf{fronteira} é uma curva $\mathcal{C} = \partial\mathcal{S}$, orientada em sentido direto, o teorema de Stokes diz-nos que:
+\begin{boxedeq}
+    \oint_{\mathcal{C}} F\cdot dr = \iint_{\mathcal{S}} \left(\nabla\times F\right) \cdot \hat{n}\,dS
+\end{boxedeq}
+
+Onde $\nabla\times F = \text{rot}\ F$ representa o rotacional do campo vetorial $F$.
+
+\subsubsection{Teorema de Gauss}
+ou Teorema da Divergência
+
+Dado um domínio $\mathbb{D}$ fechado e limitado com uma superficie \textbf{fronteira}, $\mathcal{S} = \partial\mathbb{D}$, paramatrizável, o teorema de Gauss garante que:
+
+\begin{boxedeq}
+    \iint_{\mathcal{S}} F\cdot\hat{n}\,dS = \iiint_{\mathbb{D}}(\nabla\cdot F)\,dx\,dy\,dz
+\end{boxedeq}
+
+Onde $\nabla\cdot F = \text{div}\ F$ representa a divergência do campo vetorial $F$.

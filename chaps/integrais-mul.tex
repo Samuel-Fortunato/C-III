@@ -5,7 +5,7 @@
 Com $\mathbb{D} \in \mathbb{R}^2$ sendo o domínio de integração:
 {\large
     \begin{equation*}
-        \int\int_{\mathbb{D}}f(x,y)\,dx\,dy
+        \iint_{\mathbb{D}}f(x,y)\,dx\,dy
     \end{equation*}
 }
 
@@ -103,12 +103,12 @@ Com $\mathbb{D} \in \mathbb{R}^2$ sendo o domínio de integração:
 
 Seja $\mathbb{D}$ um domínio de \textbf{tipo 1}:
 \begin{boxedeq}[0.7]
-    \int\int_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{a}^{b}\left(\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\right)\,dx
+    \iint_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{a}^{b}\left(\int_{f_1(x)}^{f_2(x)} f(x,y)\,dy\right)\,dx
 \end{boxedeq}
 
 Seja $\mathbb{D}$ um domínio de \textbf{tipo 2}:
 \begin{boxedeq}[0.7]
-    \int\int_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{c}^{d}\left(\int_{g_1(x)}^{g_2(x)} f(x,y)\,dx\right)\,dy
+    \iint_{\mathbb{D}}f(x,y)\,dx\,dy \quad = \quad \int_{c}^{d}\left(\int_{g_1(x)}^{g_2(x)} f(x,y)\,dx\right)\,dy
 \end{boxedeq}
 
 Se o domínio for de tipo 1 e tipo 2, os dois integrais \textbf{são iguais}.
@@ -118,7 +118,7 @@ Se o domínio for de tipo 1 e tipo 2, os dois integrais \textbf{são iguais}.
 Com domínio de integração $\mathbb{V} \in \mathbb{R}^3$:
 {\Large
     \begin{equation*}
-        \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz
+        \iint\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz
     \end{equation*}
 }
 
@@ -137,12 +137,12 @@ Com domínio de integração $\mathbb{V} \in \mathbb{R}^3$:
 
 Se $\mathbb{V}$ for um domínio de \textbf{tipo 1}:
 \begin{boxedeq}[0.8]
-    \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \int\int_\mathbb{B}\left(\int_{f_1(x,y)}^{f_2(x,y)} f(x,y,z)\,dz\right)\,dx\,dy
+    \iint\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \iint_\mathbb{B}\left(\int_{f_1(x,y)}^{f_2(x,y)} f(x,y,z)\,dz\right)\,dx\,dy
 \end{boxedeq}
 
 Se $\mathbb{V}$ for um domínio de \textbf{tipo 1}:
 \begin{boxedeq}[0.8]
-    \int\int\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \int_a^b\left(\int\int_{A(z)} f(x,y,z)\,dx\,dy\right)\,dz
+    \iint\int_{\mathbb{V}}f(x,y,z)\,dx\,dy\,dz = \int_a^b\left(\iint_{A(z)} f(x,y,z)\,dx\,dy\right)\,dz
 \end{boxedeq}
 
 
@@ -150,7 +150,7 @@ Se $\mathbb{V}$ for um domínio de \textbf{tipo 1}:
 \subsection{Mudança de coordenadas}
 Dada uma mudança de coordenadas $(u,v) \rightarrow (x,y) = s(u,v)$, do domínio $\mathbb{D}_{u,v}^{*}$ para $\mathbb{D}_{x,y}$, o integral em $(x,y)$ pode ser calculado como:
 \begin{boxedeq}[0.9]
-    \int\int_{\mathbb{D}_{x,y}} f(x,y)\,dx\,dy = \int\int_{\mathbb{D}_{u,v}^{*}} f(x(u,v),y(u,v))\left|\det\left[\frac{\partial(x,y)}{\partial(u,v)}\right]\right|\,du\,dv
+    \iint_{\mathbb{D}_{x,y}} f(x,y)\,dx\,dy = \iint_{\mathbb{D}_{u,v}^{*}} f(x(u,v),y(u,v))\left|\det\left[\frac{\partial(x,y)}{\partial(u,v)}\right]\right|\,du\,dv
 \end{boxedeq}
 
 \subsubsection{Coordenadas polares}
